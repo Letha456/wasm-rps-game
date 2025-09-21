@@ -22,6 +22,9 @@ It demonstrates how to:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/wasm-rps-game.git
+   git clone https://github.com/Letha456/wasm-rps-game.git
    cd wasm-rps-game
+2.**Clone the repository**
+ ```bash
    python -m http.server 8000
+head to http://localhost:8000/

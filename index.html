@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock Paper Scissors (WASM)</title>
+</head>
+<body>
+  <h1>Rock Paper Scissors</h1>
+  <button onclick="playGame(0)" disabled>Rock</button>
+  <button onclick="playGame(1)" disabled>Paper</button>
+  <button onclick="playGame(2)" disabled>Scissors</button>
+  <p id="result">Loading WASM...</p>
+
+  <!-- Pre-configure Module BEFORE loading rps.js -->
+  <script>
+    var Module = {
+      onRuntimeInitialized: function() {
+        console.log("WASM Loaded!");
+        // Enable buttons once WASM is ready
+        document.querySelectorAll('button').forEach(btn => btn.disabled = false);
+        document.getElementById("result").innerText = "Ready to play!";
+      }
+    };
+  </script>
+
+  <!-- Load rps.js (Emscripten glue code) -->
+  <script src="rps.js"></script>
+
+  <!-- Load your script.js AFTER rps.js -->
+  <script src="script.js"></script>
+</body>
+</html>
